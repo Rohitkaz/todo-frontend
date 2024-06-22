@@ -23,7 +23,7 @@ export default function Todos() {
       { withCredentials: true }
     );
     const todo = res.data;
-    setTodos((prev) => prev.filter((todo) => todo._id != task_id));
+    setTodos(todo);
   }
   async function handleclick() {
     try {
