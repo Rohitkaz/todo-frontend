@@ -23,8 +23,8 @@ const Login = () => {
         navigate("/todos");
       }
     } catch (err) {
-      console.log("hi");
       setError(true);
+      console.log(error);
     }
   };
   const getData = async () => {
