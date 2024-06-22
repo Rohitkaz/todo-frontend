@@ -22,7 +22,7 @@ const Login = () => {
         localStorage.setItem("userdata", JSON.stringify(res.data));
         navigate("/todos");
       }
-    } catch (error) {
+    } catch (err) {
       console.log("hi");
       setError(true);
     }
