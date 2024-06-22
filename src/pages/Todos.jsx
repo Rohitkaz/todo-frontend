@@ -16,18 +16,14 @@ export default function Todos() {
   async function deletetask(e) {
     const task_id = e.target.id;
     // const queryparams = new URLSearchParams(task_id);
-    try {
-      const res = await axios.delete(
-        `https://todo-backend-mv0j.onrender.com/${task_id}`,
 
-        { withCredentials: true }
-      );
-      const todo = res.data;
-      setTodos((prev) => prev.filter((todo) => todo._id != task_id));
-    } catch (err) {
-      console.log(err.message);
-      navigate("/login");
-    }
+    const res = await axios.delete(
+      `https://todo-backend-mv0j.onrender.com/${task_id}`,
+
+      { withCredentials: true }
+    );
+    const todo = res.data;
+    setTodos((prev) => prev.filter((todo) => todo._id != task_id));
   }
   async function handleclick() {
     try {
