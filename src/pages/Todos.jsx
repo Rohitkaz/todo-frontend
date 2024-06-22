@@ -23,21 +23,17 @@ export default function Todos() {
       { withCredentials: true }
     );
     const todo = res.data;
+    console.log(todo);
     setTodos(todo);
   }
   async function handleclick() {
-    try {
-      const res = await axios.post(
-        "https://todo-backend-mv0j.onrender.com/todos",
-        { task },
-        { withCredentials: true }
-      );
-      const todo = await res.data;
-      setTodos((prev) => [...prev, todo]);
-    } catch (err) {
-      console.log(err.message);
-      navigate("/login");
-    }
+    const res = await axios.post(
+      "https://todo-backend-mv0j.onrender.com/todos",
+      { task },
+      { withCredentials: true }
+    );
+    const todo = await res.data;
+    setTodos((prev) => [...prev, todo]);
   }
 
   async function Logout() {
