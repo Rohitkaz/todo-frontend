@@ -18,7 +18,7 @@ export default function Todos() {
     // const queryparams = new URLSearchParams(task_id);
 
     const res = await axios.delete(
-      `https://todo-backend-mv0j.onrender.com/${task_id}`,
+      `https://todo-backend-mv0j.onrender.com/todos/${task_id}`,
 
       { withCredentials: true }
     );
