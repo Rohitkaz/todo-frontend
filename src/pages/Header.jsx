@@ -8,8 +8,7 @@ const Header = () => {
       <div className="Header">
         <div>WELCOME</div>
         <div className="headerb">
-          <Link to="/login" className="headerbuttons">
-            {" "}
+          <Link to="/" className="headerbuttons">
             Login
           </Link>
           <Link to="/Register" className="headerbuttons">
@@ -17,7 +16,6 @@ const Header = () => {
           </Link>
         </div>
       </div>
-      <Outlet />
     </>
   );
 };

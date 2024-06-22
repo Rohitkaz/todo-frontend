@@ -3,8 +3,9 @@ import "../style.css";
 
 import axios from "axios";
 import { useLoaderData, useNavigate } from "react-router-dom";
-//import { CiCircleCheck } from "react-icons/ci";
-//import { MdDelete } from "react-icons/md";
+import { CiCircleCheck } from "react-icons/ci";
+import { MdDelete } from "react-icons/md";
+import Header from "./Header";
 export default function Todos() {
   const [task, setTask] = useState("");
   const [error, setError] = useState("");
@@ -23,7 +24,6 @@ export default function Todos() {
       { withCredentials: true }
     );
     const todo = res.data;
-    console.log(todo);
     setTodos(todo);
   }
   async function handleclick() {
@@ -45,7 +45,7 @@ export default function Todos() {
         }
       );
       console.log(res.status);
-      if (res.status === 204) navigate("/login");
+      if (res.status === 204) navigate("/");
     } catch (error) {
       console.log(error.message);
     }
@@ -53,7 +53,7 @@ export default function Todos() {
   async function completed(e) {
     const task_id = e.target.id;
     console.log(task_id);
-
+    // const queryparams = new URLSearchParams(task_id);
     try {
       const res = await axios.put(
         `https://todo-backend-mv0j.onrender.com/todos`,
@@ -65,11 +65,12 @@ export default function Todos() {
       setTodos(todo);
     } catch (err) {
       console.log("ERROR");
-      navigate("/login");
+      navigate("/");
     }
   }
   return (
     <>
+      <Header />
       <div id="mainbox">
         <div id="text"> JUST DO IT.|</div>
         <div id="inputwrapper">
@@ -98,14 +99,12 @@ export default function Todos() {
                   {todo.task}
                 </div>
                 <div className="cardbuttons">
-                  <button
+                  <CiCircleCheck
                     className="todocheck"
                     onClick={completed}
                     id={todo._id}
-                  >
-                    {" "}
-                    check
-                  </button>
+                  />
+
                   <button
                     className="tododelete"
                     id={todo._id}

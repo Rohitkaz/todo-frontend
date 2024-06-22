@@ -90,6 +90,19 @@ body {
 
   justify-content: space-between;
 }
+#todobutton:hover {
+  background: blue;
+  color: white;
+}
+#getdata:hover {
+  color: red;
+}
+.todocheck:hover {
+  color: green;
+}
+.tododelete:hover {
+  color: red;
+}
 .false {
   font-family: sans-serif;
 }

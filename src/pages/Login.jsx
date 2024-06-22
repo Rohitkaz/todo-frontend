@@ -22,9 +22,9 @@ const Login = () => {
         localStorage.setItem("userdata", JSON.stringify(res.data));
         navigate("/todos");
       }
-    } catch (err) {
+    } catch (error) {
+      console.log("hi");
       setError(true);
-      console.log(error);
     }
   };
   const getData = async () => {
@@ -35,32 +35,35 @@ const Login = () => {
     setName(res.data.password);
   };
   return (
-    <div id="LoginForm">
-      <p id="logintext">LOGIN</p>
-      <form onSubmit={handleSubmit}>
-        <div className="logininput">
-          <input
-            id="name"
-            type="text"
-            placeholder="Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <br></br>
+    <>
+      <Header />
+      <div id="LoginForm">
+        <p id="logintext">LOGIN</p>
+        <form onSubmit={handleSubmit}>
+          <div className="logininput">
+            <input
+              id="name"
+              type="text"
+              placeholder="Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <br></br>
 
-          <input
-            id="password"
-            type="text"
-            placeholder="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <br></br>
-        </div>
-        <input id="loginbutton" type="submit" value="LOGIN" />
-      </form>
-      <div class="error">{error ? "invalid username or password" : null}</div>
-    </div>
+            <input
+              id="password"
+              type="text"
+              placeholder="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <br></br>
+          </div>
+          <input id="loginbutton" type="submit" value="LOGIN" />
+        </form>
+        <div class="error">{error ? "invalid username or password" : null}</div>
+      </div>
+    </>
   );
 };
 

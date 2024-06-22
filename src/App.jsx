@@ -14,49 +14,34 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const router = createBrowserRouter([
-  /*createRoutesFromElements(
-    <Route path="/" element={<Header />}>
-      <Route path="login" element={<Login />} />
-
-      <Route path="register" element={<Register />} />
-      <Route path="todos" element={<Todos />} />
-    </Route>
-  )*/
   {
-    element: <Header />,
+    element: <Login />,
     path: "/",
-
-    children: [
-      {
-        element: <Login />,
-        path: "/login",
-      },
-      {
-        element: <Register />,
-        path: "/register",
-      },
-      {
-        element: <Todos />,
-        // errorElement: <div>Please login first</div>,
-        path: "/todos",
-        loader: async ({ request }) => {
-          try {
-            const res = await axios.get(
-              "https://todo-backend-mv0j.onrender.com/todos",
-              {
-                withCredentials: true,
-              }
-            );
-            const data = await res.data;
-            //console.log(data[0].task);
-            const todolist = data;
-            return todolist;
-          } catch (err) {
-            return redirect("/login");
+  },
+  {
+    element: <Register />,
+    path: "/register",
+  },
+  {
+    element: <Todos />,
+    // errorElement: <div>Please login first</div>,
+    path: "/todos",
+    loader: async ({ request }) => {
+      try {
+        const res = await axios.get(
+          "https://todo-backend-mv0j.onrender.com/todos",
+          {
+            withCredentials: true,
           }
-        },
-      },
-    ],
+        );
+        const data = await res.data;
+        //console.log(data[0].task);
+        const todolist = data;
+        return todolist;
+      } catch (err) {
+        return redirect("/");
+      }
+    },
   },
 ]);
 

@@ -20,7 +20,7 @@ const Register = () => {
       );
 
       if (res.status == 200) {
-        navigate("/Login");
+        navigate("/");
       }
     } catch (err) {
       console.log(err.message);
@@ -29,32 +29,35 @@ const Register = () => {
   };
 
   return (
-    <div id="LoginForm">
-      <p id="Registertext">REGISTER</p>
-      <form onSubmit={handleSubmit}>
-        <div className="logininput">
-          <input
-            id="name"
-            type="text"
-            placeholder="Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <br></br>
+    <>
+      <Header />
+      <div id="LoginForm">
+        <p id="Registertext">REGISTER</p>
+        <form onSubmit={handleSubmit}>
+          <div className="logininput">
+            <input
+              id="name"
+              type="text"
+              placeholder="Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <br></br>
 
-          <input
-            id="password"
-            type="text"
-            placeholder="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <br></br>
-        </div>
-        <input id="loginbutton" type="submit" value="SIGNUP" />
-      </form>
-      <div class="error">{error ? "username already exists" : null}</div>
-    </div>
+            <input
+              id="password"
+              type="text"
+              placeholder="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <br></br>
+          </div>
+          <input id="loginbutton" type="submit" value="SIGNUP" />
+        </form>
+        <div class="error">{error ? "username already exists" : null}</div>
+      </div>
+    </>
   );
 };
 
