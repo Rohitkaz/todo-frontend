@@ -12,7 +12,7 @@ const Register = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "https://todo-backend-mv0j.onrender.com/register",
+        "https://todo-backend-uprc.onrender.com/register",
         {
           name,
           password,

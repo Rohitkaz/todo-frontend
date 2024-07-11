@@ -19,7 +19,7 @@ export default function Todos() {
     // const queryparams = new URLSearchParams(task_id);
 
     const res = await axios.delete(
-      `https://todo-backend-mv0j.onrender.com/todos/${task_id}`,
+      `https://todo-backend-uprc.onrender.com/todos/${task_id}`,
 
       { withCredentials: true }
     );
@@ -28,7 +28,7 @@ export default function Todos() {
   }
   async function handleclick() {
     const res = await axios.post(
-      "https://todo-backend-mv0j.onrender.com/todos",
+      "https://todo-backend-uprc.onrender.com/todos",
       { task },
       { withCredentials: true }
     );
@@ -39,7 +39,7 @@ export default function Todos() {
   async function Logout() {
     try {
       const res = await axios.get(
-        "https://todo-backend-mv0j.onrender.com/logout",
+        "https://todo-backend-uprc.onrender.com/logout",
         {
           withCredentials: true,
         }
@@ -56,7 +56,7 @@ export default function Todos() {
     // const queryparams = new URLSearchParams(task_id);
     try {
       const res = await axios.put(
-        `https://todo-backend-mv0j.onrender.com/todos`,
+        `https://todo-backend-uprc.onrender.com/todos`,
         { task_id },
         { withCredentials: true }
       );

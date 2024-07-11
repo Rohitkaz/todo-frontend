@@ -29,7 +29,7 @@ const router = createBrowserRouter([
     loader: async ({ request }) => {
       try {
         const res = await axios.get(
-          "https://todo-backend-mv0j.onrender.com/todos",
+          "https://todo-backend-uprc.onrender.com/todos",
           {
             withCredentials: true,
           }

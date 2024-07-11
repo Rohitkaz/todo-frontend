@@ -13,7 +13,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "https://todo-backend-mv0j.onrender.com/login",
+        "https://todo-backend-uprc.onrender.com/login",
         { name, password },
         { withCredentials: true }
       );
@@ -28,7 +28,7 @@ const Login = () => {
     }
   };
   const getData = async () => {
-    const res = await axios.get("https://todo-backend-mv0j.onrender.com/data", {
+    const res = await axios.get("https://todo-backend-uprc.onrender.com/data", {
       withCredentials: true,
     });
     console.log(res.data.password);
